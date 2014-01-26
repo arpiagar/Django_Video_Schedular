@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<script src="http://jwpsrv.com/library/8lu6iDKYEeOhqSIACusDuQ.js"></script>
+<script type="text/javascript">jwplayer.key="";</script>
+</head>
+<body>
+
+
+<div id="myElement">Loading the player...</div>	
+<h3> Scheduled Videos are as follows : </h3>
+<table border="1">
+<tr>
+<td> Event Description</td>
+<td> Event FilePath (relative to Server MEDIA_ROOT) </td>
+<td> Event Scheduled At </td>
+<td> Event timeout(in milliseconds)</td>
+</tr>
+{% if eventlist %}
+	{% for event in eventlist %}
+			<tr>
+			<td>{{ event.description }} </td>
+			<td>{{ event.File }} </td>
+			<td>{{ event.schedule }} </td>
+			<td>{{ event.timeout }} </td>
+			</tr>
+		
+			<script type="text/javascript">
+			var timeout={{event.timeout}};
+			if (timeout>0)
+			{
+			setTimeout(function() {					
+				window.open('http://localhost:8011/schedular/forms/{{event.id}}','_blank')
+				}, {{ event.timeout }} );
+				
+			}
+	</script>	
+	{% endfor %}
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
+</table>
+</body>
+</html>

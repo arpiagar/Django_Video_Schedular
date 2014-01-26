@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<script src="http://jwpsrv.com/library/8lu6iDKYEeOhqSIACusDuQ.js"></script>
+<script type="text/javascript">jwplayer.key="";</script>
+</head>
+<body>
+
+
+<div id="myElement">Loading the player...</div>
+{% if fileurl %}
+
+<script type="text/javascript">
+			jwplayer("myElement").setup({
+			file:"http://localhost:8011/site_media/{{fileurl}}",
+			});
+			jwplayer('myElement').play();		
+	</script>
+{% endif %}
+
+
+</body>
+</html>

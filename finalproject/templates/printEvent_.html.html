@@ -1,0 +1,10 @@
+{% if eventlist %}
+    <ul>
+    {% for event in eventlist %}
+        <li>{{ event.schedule }}</li>
+		<li>{{ event.File }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
